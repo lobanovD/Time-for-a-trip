@@ -9,21 +9,28 @@
 /* Begin PBXBuildFile section */
 		1A966D6C28456BF500B42FB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A966D6B28456BF500B42FB2 /* AppDelegate.swift */; };
 		1A966D6E28456BF500B42FB2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A966D6D28456BF500B42FB2 /* SceneDelegate.swift */; };
-		1A966D7028456BF500B42FB2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A966D6F28456BF500B42FB2 /* ViewController.swift */; };
-		1A966D7328456BF500B42FB2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A966D7128456BF500B42FB2 /* Main.storyboard */; };
 		1A966D7528456BF900B42FB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A966D7428456BF900B42FB2 /* Assets.xcassets */; };
 		1A966D7828456BF900B42FB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A966D7628456BF900B42FB2 /* LaunchScreen.storyboard */; };
+		1A966D8028456CF200B42FB2 /* FlightsListingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A966D7F28456CF200B42FB2 /* FlightsListingVC.swift */; };
+		1A966D8228456D4500B42FB2 /* FlyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A966D8128456D4500B42FB2 /* FlyModel.swift */; };
+		1A966D8428456F4900B42FB2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A966D8328456F4900B42FB2 /* Extensions.swift */; };
+		1A966D882845737C00B42FB2 /* TinyConstraints in Frameworks */ = {isa = PBXBuildFile; productRef = 1A966D872845737C00B42FB2 /* TinyConstraints */; };
+		1A966D8A28457B4A00B42FB2 /* FlightsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A966D8928457B4A00B42FB2 /* FlightsTableViewCell.swift */; };
+		1ABD94612846CFDF00ECC493 /* CurrentTicketVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABD94602846CFDF00ECC493 /* CurrentTicketVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1A966D6828456BF500B42FB2 /* Time for a trip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Time for a trip.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A966D6B28456BF500B42FB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A966D6D28456BF500B42FB2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1A966D6F28456BF500B42FB2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1A966D7228456BF500B42FB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1A966D7428456BF900B42FB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A966D7728456BF900B42FB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1A966D7928456BF900B42FB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A966D7F28456CF200B42FB2 /* FlightsListingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsListingVC.swift; sourceTree = "<group>"; };
+		1A966D8128456D4500B42FB2 /* FlyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyModel.swift; sourceTree = "<group>"; };
+		1A966D8328456F4900B42FB2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		1A966D8928457B4A00B42FB2 /* FlightsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsTableViewCell.swift; sourceTree = "<group>"; };
+		1ABD94602846CFDF00ECC493 /* CurrentTicketVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTicketVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A966D882845737C00B42FB2 /* TinyConstraints in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,13 +66,24 @@
 			children = (
 				1A966D6B28456BF500B42FB2 /* AppDelegate.swift */,
 				1A966D6D28456BF500B42FB2 /* SceneDelegate.swift */,
-				1A966D6F28456BF500B42FB2 /* ViewController.swift */,
-				1A966D7128456BF500B42FB2 /* Main.storyboard */,
+				1A966D7F28456CF200B42FB2 /* FlightsListingVC.swift */,
+				1ABD94602846CFDF00ECC493 /* CurrentTicketVC.swift */,
+				1A966D8928457B4A00B42FB2 /* FlightsTableViewCell.swift */,
+				1A966D8128456D4500B42FB2 /* FlyModel.swift */,
+				1A966D8528456F4E00B42FB2 /* Support */,
 				1A966D7428456BF900B42FB2 /* Assets.xcassets */,
 				1A966D7628456BF900B42FB2 /* LaunchScreen.storyboard */,
 				1A966D7928456BF900B42FB2 /* Info.plist */,
 			);
 			path = "Time for a trip";
+			sourceTree = "<group>";
+		};
+		1A966D8528456F4E00B42FB2 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				1A966D8328456F4900B42FB2 /* Extensions.swift */,
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +102,9 @@
 			dependencies = (
 			);
 			name = "Time for a trip";
+			packageProductDependencies = (
+				1A966D872845737C00B42FB2 /* TinyConstraints */,
+			);
 			productName = "Time for a trip";
 			productReference = 1A966D6828456BF500B42FB2 /* Time for a trip.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +133,9 @@
 				Base,
 			);
 			mainGroup = 1A966D5F28456BF500B42FB2;
+			packageReferences = (
+				1A966D862845737C00B42FB2 /* XCRemoteSwiftPackageReference "TinyConstraints" */,
+			);
 			productRefGroup = 1A966D6928456BF500B42FB2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,7 +152,6 @@
 			files = (
 				1A966D7828456BF900B42FB2 /* LaunchScreen.storyboard in Resources */,
 				1A966D7528456BF900B42FB2 /* Assets.xcassets in Resources */,
-				1A966D7328456BF500B42FB2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +162,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A966D7028456BF500B42FB2 /* ViewController.swift in Sources */,
+				1A966D8428456F4900B42FB2 /* Extensions.swift in Sources */,
 				1A966D6C28456BF500B42FB2 /* AppDelegate.swift in Sources */,
+				1ABD94612846CFDF00ECC493 /* CurrentTicketVC.swift in Sources */,
+				1A966D8228456D4500B42FB2 /* FlyModel.swift in Sources */,
 				1A966D6E28456BF500B42FB2 /* SceneDelegate.swift in Sources */,
+				1A966D8028456CF200B42FB2 /* FlightsListingVC.swift in Sources */,
+				1A966D8A28457B4A00B42FB2 /* FlightsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		1A966D7128456BF500B42FB2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1A966D7228456BF500B42FB2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1A966D7628456BF900B42FB2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -292,7 +312,7 @@
 				INFOPLIST_FILE = "Time for a trip/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -304,7 +324,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -320,7 +340,7 @@
 				INFOPLIST_FILE = "Time for a trip/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -332,7 +352,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -358,6 +378,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1A966D862845737C00B42FB2 /* XCRemoteSwiftPackageReference "TinyConstraints" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/roberthein/TinyConstraints.git";
+			requirement = {
+				kind = exactVersion;
+				version = 4.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1A966D872845737C00B42FB2 /* TinyConstraints */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1A966D862845737C00B42FB2 /* XCRemoteSwiftPackageReference "TinyConstraints" */;
+			productName = TinyConstraints;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1A966D6028456BF500B42FB2 /* Project object */;
 }
