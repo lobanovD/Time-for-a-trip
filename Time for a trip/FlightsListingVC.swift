@@ -10,12 +10,12 @@ import TinyConstraints
 
 final class FlightsListingVC: UIViewController {
     
-    
-    // Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        print(1)
+
+        // Наблюдатели
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTicketsTable), name: NSNotification.Name(rawValue: "updateLikes"), object: nil)
     }
     
     // MARK: UI
@@ -53,6 +53,11 @@ final class FlightsListingVC: UIViewController {
     // All constraints
     private func setupConstraints() {
         flightsTableView.edgesToSuperview()
+    }
+    
+    // Метод обновления таблицы
+    @objc private func reloadTicketsTable() {
+        flightsTableView.reloadData()
     }
 }
 

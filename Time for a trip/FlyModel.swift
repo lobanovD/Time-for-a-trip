@@ -21,7 +21,7 @@ struct FlyModel {
 }
 
 var fly1 = FlyModel(startCity: "Москва", startCityCode: "mow", endCity: "Санкт-Петербург", endCityCode: "led", startDate: "2022-07-20T00:00:00Z", endDate: "2022-07-25T00:00:00Z", price: 2690, searchToken: "123456",  like: false)
-var fly2 = FlyModel(startCity: "Москва", startCityCode: "mow", endCity: "Нижний Новгород", endCityCode: "led", startDate: "2022-07-20T00:00:00Z", endDate: "2022-07-25T00:00:00Z", price: 2690, searchToken: "4546678",  like: false)
+var fly2 = FlyModel(startCity: "Москва", startCityCode: "mow", endCity: "Нижний Новгород", endCityCode: "led", startDate: "2022-07-20T00:00:00Z", endDate: "2022-07-25T00:00:00Z", price: 2690, searchToken: "4546678",  like: true)
 
 
 

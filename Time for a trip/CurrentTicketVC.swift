@@ -15,7 +15,6 @@ final class CurrentTicketVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         createUI()
-        print(CurrentTicketVC.cellID)
     }
     
     // MARK: UI
@@ -23,7 +22,6 @@ final class CurrentTicketVC: UIViewController {
     // ID билета
     private lazy var idLabel: UILabel = {
         let idLabel = UILabel()
-        idLabel.text = "№ билета: MOW2007LED2507Y100"
         idLabel.font = UIFont(name: "AmericanTypewriter-Light", size: 18)
         return idLabel
     }()
@@ -90,7 +88,6 @@ final class CurrentTicketVC: UIViewController {
         forwardDate.font = UIFont(name: "AmericanTypewriter-Bold", size: 18)
         return forwardDate
     }()
-    
     
     //  View билета "обратно"
     private lazy var backTicketView: UIView = {
@@ -166,9 +163,8 @@ final class CurrentTicketVC: UIViewController {
     // Цена
     private lazy var costLabel: UILabel = {
         let costLabel = UILabel()
-        costLabel.text = "5140₽"
         costLabel.font = UIFont(name: "MarkerFelt-Wide", size: 30)
-        costLabel.textColor = .red
+        costLabel.textColor = UIColor(named: "priceColor")
         return costLabel
     }()
     
@@ -185,28 +181,28 @@ final class CurrentTicketVC: UIViewController {
         return likeButton
     }()
     
-    
     // Метод нажатия на кнопку лайка
     @objc private func tapLikeButton() {
         guard let cellID = CurrentTicketVC.cellID else { return }
         if flyes[cellID].like {
             likeButton.setImage(UIImage(named: "likeDown"), for: .normal)
             flyes[CurrentTicketVC.cellID!].like = false
+            NotificationCenter.default.post(name: Notification.Name("updateLikes"), object: nil)
         } else {
             likeButton.setImage(UIImage(named: "likeUp"), for: .normal)
             flyes[CurrentTicketVC.cellID!].like = true
+            NotificationCenter.default.post(name: Notification.Name("updateLikes"), object: nil)
         }
     }
     
-    
-    // MARK: Setup UI
+    // MARK: UI
     
     private func createUI() {
         
-        // Background color
+        // Цвет фона
         view.backgroundColor = .white
         
-        // Setup UI elements
+        // Добавление UI элементов
         view.addSubviews(idLabel,
                          forwardTicketView,
                          backTicketView,
@@ -230,18 +226,31 @@ final class CurrentTicketVC: UIViewController {
                                    backDateLabel,
                                    backDate)
         
-        // Setup constraints
+        // Установка констрейнтов
         setupConstraints()
+        
+        // Установка данных
+        guard let cellID = CurrentTicketVC.cellID else { return }
+        idLabel.text = "№ билета: \(flyes[cellID].searchToken)"
+        forwardStartCity.text = "\(flyes[cellID].startCity)"
+        forwardEndCity.text = "\(flyes[cellID].endCity)"
+        let sTime = MyDateFormater.formatDateToTime(date: flyes[cellID].startDate)
+        let sDate = MyDateFormater.formatDateToDate(date: flyes[cellID].startDate)
+        forwardDate.text = "\(sDate) в \(sTime)"
+        backStartCity.text = "\(flyes[cellID].endCity)"
+        backEndCity.text = "\(flyes[cellID].startCity)"
+        let eTime = MyDateFormater.formatDateToTime(date: flyes[cellID].endDate)
+        let eDate = MyDateFormater.formatDateToDate(date: flyes[cellID].endDate)
+        backDate.text = "\(eDate) в \(eTime)"
+        costLabel.text = "\(flyes[cellID].price) ₽"
     }
-    
-    
     
     // MARK: Constraints
     private func setupConstraints() {
         
         // ID билета
         idLabel.centerXToSuperview()
-        idLabel.topToSuperview(offset: 100)
+        idLabel.topToSuperview(offset: 80)
         
         // Билет "туда"
         forwardTicketView.topToBottom(of: idLabel, offset: 10)

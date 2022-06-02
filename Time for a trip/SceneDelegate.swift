@@ -19,6 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let flightsListingVC = FlightsListingVC()
         let navigationVC = UINavigationController(rootViewController: flightsListingVC)
+        navigationVC.navigationBar.tintColor = .black
         
         window.rootViewController = navigationVC
         

@@ -117,13 +117,13 @@ final class FlightsTableViewCell: UITableViewCell {
     private lazy var costLabel: UILabel = {
         let costLabel = UILabel()
         costLabel.font = UIFont(name: "MarkerFelt-Wide", size: 20)
-        costLabel.textColor = .red
+        costLabel.textColor = UIColor(named: "priceColor")
         return costLabel
     }()
     
     // Иконка "Нравится"
     private lazy var likeImage: UIImageView = {
-        let likeImage = UIImageView(image: UIImage(named: "likeDown"))
+        let likeImage = UIImageView()
         return likeImage
     }()
     
@@ -143,6 +143,7 @@ final class FlightsTableViewCell: UITableViewCell {
         let eDate = MyDateFormater.formatDateToDate(date: flyes[cellId].endDate)
         endDate.text = eDate
         costLabel.text = String("\(flyes[cellId].price) ₽")
+
         
         if flyes[cellId].like {
             likeImage.image = UIImage(named: "likeUp")
@@ -176,7 +177,7 @@ final class FlightsTableViewCell: UITableViewCell {
         planeBack.width(40)
         
         startTime.topToSuperview(offset: 65)
-        startTime.leftToSuperview(offset: contentView.frame.width / 4 - 16)
+        startTime.leftToSuperview(offset: contentView.frame.width / 4 - 24)
         
         startDate.topToBottom(of: startTime)
         startDate.centerX(to: startTime)
@@ -185,7 +186,7 @@ final class FlightsTableViewCell: UITableViewCell {
         startCity.centerX(to: startTime)
         
         endTime.topToSuperview(offset: 65)
-        endTime.rightToSuperview(offset: -contentView.frame.width / 4 + 16)
+        endTime.rightToSuperview(offset: -contentView.frame.width / 4 + 24)
         
         endDate.topToBottom(of: endTime)
         endDate.centerX(to: endTime)
