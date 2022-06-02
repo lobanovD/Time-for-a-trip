@@ -60,11 +60,12 @@ final class FlightsListingVC: UIViewController {
 extension FlightsListingVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 25
+        return flyes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: FlightsTableViewCell.identifire, for: indexPath) as! FlightsTableViewCell
+        cell.createCell(cellId: indexPath.row)
         
         
         
@@ -77,6 +78,8 @@ extension FlightsListingVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        FlightsTableViewCell.cellID = indexPath.rowк
+        CurrentTicketVC.cellID = indexPath.row
         let currentTicketVC = CurrentTicketVC()
         navigationController?.pushViewController(currentTicketVC, animated: true)
     }

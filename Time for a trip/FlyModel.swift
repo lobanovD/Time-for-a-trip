@@ -16,28 +16,16 @@ struct FlyModel {
     var endDate: String
     var price: Int
     var searchToken: String
+    var like: Bool
     
-//          "startCity": "Москва",
-//          "startCityCode": "mow",
-//          "endCity": "Санкт-Петербург",
-//          "endCityCode": "led",
-//          "startDate": "2022-07-20T00:00:00Z",
-//          "endDate": "2022-07-25T00:00:00Z",
-//          "price": 2690,
-//          "searchToken": "MOW2007LED2507Y100"
 }
 
-
-let fly1 = FlyModel(startCity: "Москва", startCityCode: "mow", endCity: "Санкт-Петербург", endCityCode: "led", startDate: "2022-07-20T00:00:00Z", endDate: "2022-07-25T00:00:00Z", price: 2690, searchToken: "MOW2007LED2507Y100")
-let fly2 = FlyModel(startCity: "Москва", startCityCode: "mow", endCity: "Санкт-Петербург", endCityCode: "led", startDate: "2022-07-20T00:00:00Z", endDate: "2022-07-25T00:00:00Z", price: 2690, searchToken: "MOW2007LED2507Y100")
-let fly3 = FlyModel(startCity: "Москва", startCityCode: "mow", endCity: "Санкт-Петербург", endCityCode: "led", startDate: "2022-07-20T00:00:00Z", endDate: "2022-07-25T00:00:00Z", price: 2690, searchToken: "MOW2007LED2507Y100")
-let fly4 = FlyModel(startCity: "Москва", startCityCode: "mow", endCity: "Санкт-Петербург", endCityCode: "led", startDate: "2022-07-20T00:00:00Z", endDate: "2022-07-25T00:00:00Z", price: 2690, searchToken: "MOW2007LED2507Y100")
-let fly5 = FlyModel(startCity: "Москва", startCityCode: "mow", endCity: "Санкт-Петербург", endCityCode: "led", startDate: "2022-07-20T00:00:00Z", endDate: "2022-07-25T00:00:00Z", price: 2690, searchToken: "MOW2007LED2507Y100")
-let fly6 = FlyModel(startCity: "Москва", startCityCode: "mow", endCity: "Санкт-Петербург", endCityCode: "led", startDate: "2022-07-20T00:00:00Z", endDate: "2022-07-25T00:00:00Z", price: 2690, searchToken: "MOW2007LED2507Y100")
-let fly7 = FlyModel(startCity: "Москва", startCityCode: "mow", endCity: "Санкт-Петербург", endCityCode: "led", startDate: "2022-07-20T00:00:00Z", endDate: "2022-07-25T00:00:00Z", price: 2690, searchToken: "MOW2007LED2507Y100")
-let fly8 = FlyModel(startCity: "Москва", startCityCode: "mow", endCity: "Санкт-Петербург", endCityCode: "led", startDate: "2022-07-20T00:00:00Z", endDate: "2022-07-25T00:00:00Z", price: 2690, searchToken: "MOW2007LED2507Y100")
-
-let flyes: [FlyModel] = [fly1, fly2, fly3, fly4, fly5, fly6, fly7, fly8]
+var fly1 = FlyModel(startCity: "Москва", startCityCode: "mow", endCity: "Санкт-Петербург", endCityCode: "led", startDate: "2022-07-20T00:00:00Z", endDate: "2022-07-25T00:00:00Z", price: 2690, searchToken: "123456",  like: false)
+var fly2 = FlyModel(startCity: "Москва", startCityCode: "mow", endCity: "Нижний Новгород", endCityCode: "led", startDate: "2022-07-20T00:00:00Z", endDate: "2022-07-25T00:00:00Z", price: 2690, searchToken: "4546678",  like: false)
 
 
-let array = [1...100]
+
+var flyes: [FlyModel] = [fly1, fly2]
+
+
+

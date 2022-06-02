@@ -8,11 +8,14 @@
 import UIKit
 import TinyConstraints
 
-class CurrentTicketVC: UIViewController {
-
+final class CurrentTicketVC: UIViewController {
+    
+    static var cellID: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         createUI()
+        print(CurrentTicketVC.cellID)
     }
     
     // MARK: UI
@@ -49,12 +52,12 @@ class CurrentTicketVC: UIViewController {
     }()
     
     // Город отправления на билете "туда"
-        private lazy var forwardStartCity: UILabel = {
-            let forwardStartCity = UILabel()
-            forwardStartCity.text = "Санкт-Петербург"
-            forwardStartCity.font = UIFont(name: "AmericanTypewriter-Bold", size: 22)
-            return forwardStartCity
-        }()
+    private lazy var forwardStartCity: UILabel = {
+        let forwardStartCity = UILabel()
+        forwardStartCity.text = "Санкт-Петербург"
+        forwardStartCity.font = UIFont(name: "AmericanTypewriter-Bold", size: 22)
+        return forwardStartCity
+    }()
     
     // "Куда" на билете "туда"
     private lazy var forwardToLabel: UILabel = {
@@ -65,12 +68,12 @@ class CurrentTicketVC: UIViewController {
     }()
     
     // Город назначения на билете "туда"
-        private lazy var forwardEndCity: UILabel = {
-            let forwardEndCity = UILabel()
-            forwardEndCity.text = "Нижний Новгород"
-            forwardEndCity.font = UIFont(name: "AmericanTypewriter-Bold", size: 22)
-            return forwardEndCity
-        }()
+    private lazy var forwardEndCity: UILabel = {
+        let forwardEndCity = UILabel()
+        forwardEndCity.text = "Нижний Новгород"
+        forwardEndCity.font = UIFont(name: "AmericanTypewriter-Bold", size: 22)
+        return forwardEndCity
+    }()
     
     // "Вылет" на билете "туда"
     private lazy var forwardDateLabel: UILabel = {
@@ -81,12 +84,12 @@ class CurrentTicketVC: UIViewController {
     }()
     
     // Дата и время на билете "туда"
-        private lazy var forwardDate: UILabel = {
-            let forwardDate = UILabel()
-            forwardDate.text = "28.10.2022 в 16:00"
-            forwardDate.font = UIFont(name: "AmericanTypewriter-Bold", size: 18)
-            return forwardDate
-        }()
+    private lazy var forwardDate: UILabel = {
+        let forwardDate = UILabel()
+        forwardDate.text = "28.10.2022 в 16:00"
+        forwardDate.font = UIFont(name: "AmericanTypewriter-Bold", size: 18)
+        return forwardDate
+    }()
     
     
     //  View билета "обратно"
@@ -113,12 +116,12 @@ class CurrentTicketVC: UIViewController {
     }()
     
     // Город отправления на билете "обратно"
-        private lazy var backStartCity: UILabel = {
-            let backStartCity = UILabel()
-            backStartCity.text = "Нижний Новгород"
-            backStartCity.font = UIFont(name: "AmericanTypewriter-Bold", size: 22)
-            return backStartCity
-        }()
+    private lazy var backStartCity: UILabel = {
+        let backStartCity = UILabel()
+        backStartCity.text = "Нижний Новгород"
+        backStartCity.font = UIFont(name: "AmericanTypewriter-Bold", size: 22)
+        return backStartCity
+    }()
     
     // "Куда" на билете "обратно"
     private lazy var backToLabel: UILabel = {
@@ -129,12 +132,12 @@ class CurrentTicketVC: UIViewController {
     }()
     
     // Город назначения на билете "обратно"
-        private lazy var backEndCity: UILabel = {
-            let backEndCity = UILabel()
-            backEndCity.text = "Санкт-Петербург"
-            backEndCity.font = UIFont(name: "AmericanTypewriter-Bold", size: 22)
-            return backEndCity
-        }()
+    private lazy var backEndCity: UILabel = {
+        let backEndCity = UILabel()
+        backEndCity.text = "Санкт-Петербург"
+        backEndCity.font = UIFont(name: "AmericanTypewriter-Bold", size: 22)
+        return backEndCity
+    }()
     
     // "Вылет" на билете "обратно"
     private lazy var backDateLabel: UILabel = {
@@ -145,32 +148,50 @@ class CurrentTicketVC: UIViewController {
     }()
     
     // Дата и время на билете "обратно"
-        private lazy var backDate: UILabel = {
-            let backDate = UILabel()
-            backDate.text = "29.10.2022 в 21:25"
-            backDate.font = UIFont(name: "AmericanTypewriter-Bold", size: 18)
-            return backDate
-        }()
+    private lazy var backDate: UILabel = {
+        let backDate = UILabel()
+        backDate.text = "29.10.2022 в 21:25"
+        backDate.font = UIFont(name: "AmericanTypewriter-Bold", size: 18)
+        return backDate
+    }()
     
+    //  Label "Стоимость туда и обратно"
+    private lazy var beforeCostLabel: UILabel = {
+        let beforeCostLabel = UILabel()
+        beforeCostLabel.text = "Стоимость туда и обратно: "
+        beforeCostLabel.font = UIFont(name: "AmericanTypewriter-Light", size: 14)
+        return beforeCostLabel
+    }()
     
+    // Цена
+    private lazy var costLabel: UILabel = {
+        let costLabel = UILabel()
+        costLabel.text = "5140₽"
+        costLabel.font = UIFont(name: "MarkerFelt-Wide", size: 30)
+        costLabel.textColor = .red
+        return costLabel
+    }()
     
-
-
-//
-//    // Цена
-//    private lazy var costLabel: UILabel = {
-//        let costLabel = UILabel()
-//        costLabel.text = "5140₽"
-//        costLabel.font = UIFont(name: "MarkerFelt-Wide", size: 20)
-//        costLabel.textColor = .red
-//        return costLabel
-//    }()
-//
-//    // Иконка "Нравится"
-//    private lazy var likeImage: UIImageView = {
-//        let likeImage = UIImageView(image: UIImage(named: "likeDown"))
-//        return likeImage
-//    }()
+    // Кнопка лайка
+    private lazy var likeButton: UIButton = {
+        let likeButton = UIButton()
+        if flyes[CurrentTicketVC.cellID!].like {
+            likeButton.setImage(UIImage(named: "likeUp"), for: .normal)
+        } else {
+            likeButton.setImage(UIImage(named: "likeDown"), for: .normal)
+        }
+        
+        likeButton.addTarget(self, action: #selector(tapLikeButton), for: .touchUpInside)
+        return likeButton
+    }()
+    
+    @objc private func tapLikeButton() {
+        likeButton.setImage(UIImage(named: "likeUp"), for: .normal)
+        print(flyes)
+        flyes[CurrentTicketVC.cellID!].like = true
+        print(flyes)
+        
+    }
     
     
     // MARK: Setup UI
@@ -183,7 +204,10 @@ class CurrentTicketVC: UIViewController {
         // Setup UI elements
         view.addSubviews(idLabel,
                          forwardTicketView,
-                         backTicketView)
+                         backTicketView,
+                         beforeCostLabel,
+                         costLabel,
+                         likeButton)
         
         forwardTicketView.addSubviews(planeForward,
                                       forwardFromLabel,
@@ -201,12 +225,11 @@ class CurrentTicketVC: UIViewController {
                                    backDateLabel,
                                    backDate)
         
-                             
         // Setup constraints
         setupConstraints()
     }
     
-
+    
     
     // MARK: Constraints
     private func setupConstraints() {
@@ -231,7 +254,7 @@ class CurrentTicketVC: UIViewController {
         
         forwardStartCity.centerY(to: forwardFromLabel)
         forwardStartCity.centerXToSuperview()
-
+        
         forwardToLabel.topToBottom(of: forwardFromLabel, offset: 20)
         forwardToLabel.leftToSuperview(offset: 6)
         
@@ -263,22 +286,27 @@ class CurrentTicketVC: UIViewController {
         
         backToLabel.topToBottom(of: backFromLabel, offset: 20)
         backToLabel.leftToSuperview(offset: 6)
-
+        
         backEndCity.centerY(to: backToLabel)
         backEndCity.centerXToSuperview()
-
+        
         backDateLabel.topToBottom(of: backToLabel, offset: 20)
         backDateLabel.leftToSuperview(offset: 6)
-
+        
         backDate.centerY(to: backDateLabel)
         backDate.centerXToSuperview()
         
+        // Цена
+        beforeCostLabel.topToBottom(of: backTicketView, offset: 20)
+        beforeCostLabel.centerXToSuperview(offset: -60)
         
+        costLabel.topToBottom(of: beforeCostLabel, offset: 6)
+        costLabel.centerXToSuperview(offset: -60)
         
-        
-     
+        // Кнопка Like
+        likeButton.topToBottom(of: backTicketView, offset: 30)
+        likeButton.centerXToSuperview(offset: 120)
+        likeButton.height(40)
+        likeButton.width(40)
     }
-    
-
-
 }

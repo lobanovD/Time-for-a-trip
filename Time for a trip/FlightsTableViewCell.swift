@@ -8,10 +8,10 @@
 import UIKit
 import TinyConstraints
 
-class FlightsTableViewCell: UITableViewCell {
+final class FlightsTableViewCell: UITableViewCell {
     
     static let identifire = "FlightsTableViewCell"
-
+    
     // MARK: Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -47,7 +47,6 @@ class FlightsTableViewCell: UITableViewCell {
     // ID билета
     private lazy var idLabel: UILabel = {
         let idLabel = UILabel()
-        idLabel.text = "MOW2007LED2507Y100"
         idLabel.font = UIFont(name: "AmericanTypewriter-Light", size: 8)
         return idLabel
     }()
@@ -75,8 +74,6 @@ class FlightsTableViewCell: UITableViewCell {
     // Место отправления
     private lazy var startCity: UILabel = {
         let startCity = UILabel()
-        startCity.text = "Санкт-Петербург"
-//        startCity.text = "Москва"
         startCity.font = UIFont(name: "AmericanTypewriter-Bold", size: 16)
         return startCity
     }()
@@ -84,8 +81,6 @@ class FlightsTableViewCell: UITableViewCell {
     // Место прибытия
     private lazy var endCity: UILabel = {
         let endCity = UILabel()
-        endCity.text = "Нижний Новгород"
-//        endCity.text = "Москва"
         endCity.font = UIFont(name: "AmericanTypewriter-Bold", size: 16)
         return endCity
     }()
@@ -93,7 +88,6 @@ class FlightsTableViewCell: UITableViewCell {
     // Время отправления
     private lazy var startTime: UILabel = {
         let startTime = UILabel()
-        startTime.text = "10:00"
         startTime.font = UIFont(name: "AmericanTypewriter-Bold", size: 20)
         return startTime
     }()
@@ -101,7 +95,6 @@ class FlightsTableViewCell: UITableViewCell {
     // Дата отправления
     private lazy var startDate: UILabel = {
         let startDate = UILabel()
-        startDate.text = "25.07.2022"
         startDate.font = UIFont(name: "AmericanTypewriter-Light", size: 10)
         return startDate
     }()
@@ -109,7 +102,6 @@ class FlightsTableViewCell: UITableViewCell {
     // Время прибытия
     private lazy var endTime: UILabel = {
         let endTime = UILabel()
-        endTime.text = "10:00"
         endTime.font = UIFont(name: "AmericanTypewriter-Bold", size: 20)
         return endTime
     }()
@@ -117,7 +109,6 @@ class FlightsTableViewCell: UITableViewCell {
     // Дата прибытия
     private lazy var endDate: UILabel = {
         let endDate = UILabel()
-        endDate.text = "25.07.2022"
         endDate.font = UIFont(name: "AmericanTypewriter-Light", size: 10)
         return endDate
     }()
@@ -125,7 +116,6 @@ class FlightsTableViewCell: UITableViewCell {
     // Цена
     private lazy var costLabel: UILabel = {
         let costLabel = UILabel()
-        costLabel.text = "5140₽"
         costLabel.font = UIFont(name: "MarkerFelt-Wide", size: 20)
         costLabel.textColor = .red
         return costLabel
@@ -140,15 +130,35 @@ class FlightsTableViewCell: UITableViewCell {
 
     
     // MARK: Create cell
-    
-
-    
+    func createCell(cellId: Int) {
+        idLabel.text = flyes[cellId].searchToken
+        startCity.text = flyes[cellId].startCity
+        endCity.text = flyes[cellId].endCity
+        let sTime = MyDateFormater.formatDateToTime(date: flyes[cellId].startDate)
+        startTime.text = sTime
+        let sDate = MyDateFormater.formatDateToDate(date: flyes[cellId].startDate)
+        startDate.text = sDate
+        let eTime = MyDateFormater.formatDateToTime(date: flyes[cellId].endDate)
+        endTime.text = eTime
+        let eDate = MyDateFormater.formatDateToDate(date: flyes[cellId].endDate)
+        endDate.text = eDate
+        costLabel.text = String("\(flyes[cellId].price) ₽")
+        
+        if flyes[cellId].like {
+            likeImage.image = UIImage(named: "likeUp")
+        } else {
+            likeImage.image = UIImage(named: "likeDown")
+        }
+    }
     
     // MARK: Constraints
     
     private func setupConstraints() {
         
         mainView.edgesToSuperview(insets: .top(5) + .left(16) + .right(16) + .bottom(5))
+        
+        idLabel.topToSuperview(offset: 6)
+        idLabel.leftToSuperview(offset: 6)
         
         centerLine.centerXToSuperview()
         centerLine.topToSuperview(offset: 10)
@@ -165,26 +175,23 @@ class FlightsTableViewCell: UITableViewCell {
         planeBack.height(30)
         planeBack.width(40)
         
-        startCity.centerYToSuperview()
-        startCity.leftToSuperview(offset: 8)
-        
-        endCity.centerYToSuperview()
-        endCity.rightToSuperview(offset: -8)
-        
-        idLabel.topToSuperview(offset: 6)
-        idLabel.leftToSuperview(offset: 6)
-        
-        startTime.topToBottom(of: startCity)
-        startTime.centerX(to: startCity)
+        startTime.topToSuperview(offset: 65)
+        startTime.leftToSuperview(offset: contentView.frame.width / 4 - 16)
         
         startDate.topToBottom(of: startTime)
-        startDate.centerX(to: startCity)
+        startDate.centerX(to: startTime)
         
-        endTime.topToBottom(of: endCity)
-        endTime.centerX(to: endCity)
+        startCity.centerYToSuperview()
+        startCity.centerX(to: startTime)
+        
+        endTime.topToSuperview(offset: 65)
+        endTime.rightToSuperview(offset: -contentView.frame.width / 4 + 16)
         
         endDate.topToBottom(of: endTime)
-        endDate.centerX(to: endCity)
+        endDate.centerX(to: endTime)
+        
+        endCity.centerYToSuperview()
+        endCity.centerX(to: endTime)
         
         costLabel.topToSuperview(offset: 10)
         costLabel.rightToSuperview(offset: -10)
