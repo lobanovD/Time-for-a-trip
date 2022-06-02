@@ -14,6 +14,7 @@ final class CurrentTicketVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Запуск UI
         createUI()
     }
     
@@ -52,7 +53,6 @@ final class CurrentTicketVC: UIViewController {
     // Город отправления на билете "туда"
     private lazy var forwardStartCity: UILabel = {
         let forwardStartCity = UILabel()
-        forwardStartCity.text = "Санкт-Петербург"
         forwardStartCity.font = UIFont(name: "AmericanTypewriter-Bold", size: 22)
         return forwardStartCity
     }()
@@ -68,7 +68,6 @@ final class CurrentTicketVC: UIViewController {
     // Город назначения на билете "туда"
     private lazy var forwardEndCity: UILabel = {
         let forwardEndCity = UILabel()
-        forwardEndCity.text = "Нижний Новгород"
         forwardEndCity.font = UIFont(name: "AmericanTypewriter-Bold", size: 22)
         return forwardEndCity
     }()
@@ -84,7 +83,6 @@ final class CurrentTicketVC: UIViewController {
     // Дата и время на билете "туда"
     private lazy var forwardDate: UILabel = {
         let forwardDate = UILabel()
-        forwardDate.text = "28.10.2022 в 16:00"
         forwardDate.font = UIFont(name: "AmericanTypewriter-Bold", size: 18)
         return forwardDate
     }()
@@ -115,7 +113,6 @@ final class CurrentTicketVC: UIViewController {
     // Город отправления на билете "обратно"
     private lazy var backStartCity: UILabel = {
         let backStartCity = UILabel()
-        backStartCity.text = "Нижний Новгород"
         backStartCity.font = UIFont(name: "AmericanTypewriter-Bold", size: 22)
         return backStartCity
     }()
@@ -131,7 +128,6 @@ final class CurrentTicketVC: UIViewController {
     // Город назначения на билете "обратно"
     private lazy var backEndCity: UILabel = {
         let backEndCity = UILabel()
-        backEndCity.text = "Санкт-Петербург"
         backEndCity.font = UIFont(name: "AmericanTypewriter-Bold", size: 22)
         return backEndCity
     }()
@@ -147,7 +143,6 @@ final class CurrentTicketVC: UIViewController {
     // Дата и время на билете "обратно"
     private lazy var backDate: UILabel = {
         let backDate = UILabel()
-        backDate.text = "29.10.2022 в 21:25"
         backDate.font = UIFont(name: "AmericanTypewriter-Bold", size: 18)
         return backDate
     }()
@@ -171,7 +166,7 @@ final class CurrentTicketVC: UIViewController {
     // Кнопка лайка
     private lazy var likeButton: UIButton = {
         let likeButton = UIButton()
-        if flyes[CurrentTicketVC.cellID!].like {
+        if NetworkManager.ticketsArray[CurrentTicketVC.cellID!].like {
             likeButton.setImage(UIImage(named: "likeUp"), for: .normal)
         } else {
             likeButton.setImage(UIImage(named: "likeDown"), for: .normal)
@@ -184,13 +179,13 @@ final class CurrentTicketVC: UIViewController {
     // Метод нажатия на кнопку лайка
     @objc private func tapLikeButton() {
         guard let cellID = CurrentTicketVC.cellID else { return }
-        if flyes[cellID].like {
+        if NetworkManager.ticketsArray[cellID].like {
             likeButton.setImage(UIImage(named: "likeDown"), for: .normal)
-            flyes[CurrentTicketVC.cellID!].like = false
+            NetworkManager.ticketsArray[CurrentTicketVC.cellID!].like = false
             NotificationCenter.default.post(name: Notification.Name("updateLikes"), object: nil)
         } else {
             likeButton.setImage(UIImage(named: "likeUp"), for: .normal)
-            flyes[CurrentTicketVC.cellID!].like = true
+            NetworkManager.ticketsArray[CurrentTicketVC.cellID!].like = true
             NotificationCenter.default.post(name: Notification.Name("updateLikes"), object: nil)
         }
     }
@@ -231,18 +226,18 @@ final class CurrentTicketVC: UIViewController {
         
         // Установка данных
         guard let cellID = CurrentTicketVC.cellID else { return }
-        idLabel.text = "№ билета: \(flyes[cellID].searchToken)"
-        forwardStartCity.text = "\(flyes[cellID].startCity)"
-        forwardEndCity.text = "\(flyes[cellID].endCity)"
-        let sTime = MyDateFormater.formatDateToTime(date: flyes[cellID].startDate)
-        let sDate = MyDateFormater.formatDateToDate(date: flyes[cellID].startDate)
+        idLabel.text = "№ билета: \(NetworkManager.ticketsArray[cellID].searchToken)"
+        forwardStartCity.text = "\(NetworkManager.ticketsArray[cellID].startCity)"
+        forwardEndCity.text = "\(NetworkManager.ticketsArray[cellID].endCity)"
+        let sTime = MyDateFormater.formatDateToTime(date: NetworkManager.ticketsArray[cellID].startDate)
+        let sDate = MyDateFormater.formatDateToDate(date: NetworkManager.ticketsArray[cellID].startDate)
         forwardDate.text = "\(sDate) в \(sTime)"
-        backStartCity.text = "\(flyes[cellID].endCity)"
-        backEndCity.text = "\(flyes[cellID].startCity)"
-        let eTime = MyDateFormater.formatDateToTime(date: flyes[cellID].endDate)
-        let eDate = MyDateFormater.formatDateToDate(date: flyes[cellID].endDate)
+        backStartCity.text = "\(NetworkManager.ticketsArray[cellID].endCity)"
+        backEndCity.text = "\(NetworkManager.ticketsArray[cellID].startCity)"
+        let eTime = MyDateFormater.formatDateToTime(date: NetworkManager.ticketsArray[cellID].endDate)
+        let eDate = MyDateFormater.formatDateToDate(date: NetworkManager.ticketsArray[cellID].endDate)
         backDate.text = "\(eDate) в \(eTime)"
-        costLabel.text = "\(flyes[cellID].price) ₽"
+        costLabel.text = "\(NetworkManager.ticketsArray[cellID].price) ₽"
     }
     
     // MARK: Constraints
@@ -250,7 +245,7 @@ final class CurrentTicketVC: UIViewController {
         
         // ID билета
         idLabel.centerXToSuperview()
-        idLabel.topToSuperview(offset: 80)
+        idLabel.topToSuperview(offset: 100)
         
         // Билет "туда"
         forwardTicketView.topToBottom(of: idLabel, offset: 10)

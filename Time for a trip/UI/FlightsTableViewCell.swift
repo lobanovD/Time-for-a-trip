@@ -28,7 +28,7 @@ final class FlightsTableViewCell: UITableViewCell {
                              endDate,
                              costLabel,
                              likeImage)
-
+        
         self.selectionStyle = .none
         setupConstraints()
     }
@@ -127,32 +127,29 @@ final class FlightsTableViewCell: UITableViewCell {
         return likeImage
     }()
     
-
-    
-    // MARK: Create cell
+    // MARK: Наполнение ячейки
     func createCell(cellId: Int) {
-        idLabel.text = flyes[cellId].searchToken
-        startCity.text = flyes[cellId].startCity
-        endCity.text = flyes[cellId].endCity
-        let sTime = MyDateFormater.formatDateToTime(date: flyes[cellId].startDate)
+        idLabel.text = NetworkManager.ticketsArray[cellId].searchToken
+        startCity.text = NetworkManager.ticketsArray[cellId].startCity
+        endCity.text = NetworkManager.ticketsArray[cellId].endCity
+        let sTime = MyDateFormater.formatDateToTime(date: NetworkManager.ticketsArray[cellId].startDate)
         startTime.text = sTime
-        let sDate = MyDateFormater.formatDateToDate(date: flyes[cellId].startDate)
+        let sDate = MyDateFormater.formatDateToDate(date: NetworkManager.ticketsArray[cellId].startDate)
         startDate.text = sDate
-        let eTime = MyDateFormater.formatDateToTime(date: flyes[cellId].endDate)
+        let eTime = MyDateFormater.formatDateToTime(date: NetworkManager.ticketsArray[cellId].endDate)
         endTime.text = eTime
-        let eDate = MyDateFormater.formatDateToDate(date: flyes[cellId].endDate)
+        let eDate = MyDateFormater.formatDateToDate(date: NetworkManager.ticketsArray[cellId].endDate)
         endDate.text = eDate
-        costLabel.text = String("\(flyes[cellId].price) ₽")
-
+        costLabel.text = String("\(NetworkManager.ticketsArray[cellId].price) ₽")
         
-        if flyes[cellId].like {
+        if NetworkManager.ticketsArray[cellId].like {
             likeImage.image = UIImage(named: "likeUp")
         } else {
             likeImage.image = UIImage(named: "likeDown")
         }
     }
     
-    // MARK: Constraints
+    // MARK: Констрейнты
     
     private func setupConstraints() {
         
@@ -203,9 +200,8 @@ final class FlightsTableViewCell: UITableViewCell {
         likeImage.width(20)
     }
     
-
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
 }

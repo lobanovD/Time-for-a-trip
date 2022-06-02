@@ -26,7 +26,7 @@ final class MyDateFormater {
         let isoFormatter = ISO8601DateFormatter()
         let isoDate = isoFormatter.date(from: date)
         let dateFormater = DateFormatter()
-        dateFormater.dateFormat = "dd:MM:yyyy"
+        dateFormater.dateFormat = "dd.MM.yyyy"
         guard let isoDate = isoDate else { return "ошибка конвертации даты" }
         let currentTime = dateFormater.string(from: isoDate)
         return currentTime

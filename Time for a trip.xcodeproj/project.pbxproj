@@ -12,12 +12,13 @@
 		1A966D7528456BF900B42FB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A966D7428456BF900B42FB2 /* Assets.xcassets */; };
 		1A966D7828456BF900B42FB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A966D7628456BF900B42FB2 /* LaunchScreen.storyboard */; };
 		1A966D8028456CF200B42FB2 /* FlightsListingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A966D7F28456CF200B42FB2 /* FlightsListingVC.swift */; };
-		1A966D8228456D4500B42FB2 /* FlyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A966D8128456D4500B42FB2 /* FlyModel.swift */; };
+		1A966D8228456D4500B42FB2 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A966D8128456D4500B42FB2 /* Models.swift */; };
 		1A966D8428456F4900B42FB2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A966D8328456F4900B42FB2 /* Extensions.swift */; };
 		1A966D882845737C00B42FB2 /* TinyConstraints in Frameworks */ = {isa = PBXBuildFile; productRef = 1A966D872845737C00B42FB2 /* TinyConstraints */; };
 		1A966D8A28457B4A00B42FB2 /* FlightsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A966D8928457B4A00B42FB2 /* FlightsTableViewCell.swift */; };
 		1ABD94612846CFDF00ECC493 /* CurrentTicketVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABD94602846CFDF00ECC493 /* CurrentTicketVC.swift */; };
 		1ABD94632848118800ECC493 /* DateFormater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABD94622848118800ECC493 /* DateFormater.swift */; };
+		1ABD94662849420500ECC493 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABD94652849420500ECC493 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,11 +29,12 @@
 		1A966D7728456BF900B42FB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1A966D7928456BF900B42FB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A966D7F28456CF200B42FB2 /* FlightsListingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsListingVC.swift; sourceTree = "<group>"; };
-		1A966D8128456D4500B42FB2 /* FlyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyModel.swift; sourceTree = "<group>"; };
+		1A966D8128456D4500B42FB2 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		1A966D8328456F4900B42FB2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		1A966D8928457B4A00B42FB2 /* FlightsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsTableViewCell.swift; sourceTree = "<group>"; };
 		1ABD94602846CFDF00ECC493 /* CurrentTicketVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTicketVC.swift; sourceTree = "<group>"; };
 		1ABD94622848118800ECC493 /* DateFormater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormater.swift; sourceTree = "<group>"; };
+		1ABD94652849420500ECC493 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,10 +70,8 @@
 			children = (
 				1A966D6B28456BF500B42FB2 /* AppDelegate.swift */,
 				1A966D6D28456BF500B42FB2 /* SceneDelegate.swift */,
-				1A966D7F28456CF200B42FB2 /* FlightsListingVC.swift */,
-				1ABD94602846CFDF00ECC493 /* CurrentTicketVC.swift */,
-				1A966D8928457B4A00B42FB2 /* FlightsTableViewCell.swift */,
-				1A966D8128456D4500B42FB2 /* FlyModel.swift */,
+				1ABD9464284941D900ECC493 /* UI */,
+				1ABD94692849655D00ECC493 /* Network */,
 				1A966D8528456F4E00B42FB2 /* Support */,
 				1A966D7428456BF900B42FB2 /* Assets.xcassets */,
 				1A966D7628456BF900B42FB2 /* LaunchScreen.storyboard */,
@@ -87,6 +87,25 @@
 				1ABD94622848118800ECC493 /* DateFormater.swift */,
 			);
 			path = Support;
+			sourceTree = "<group>";
+		};
+		1ABD9464284941D900ECC493 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				1A966D7F28456CF200B42FB2 /* FlightsListingVC.swift */,
+				1ABD94602846CFDF00ECC493 /* CurrentTicketVC.swift */,
+				1A966D8928457B4A00B42FB2 /* FlightsTableViewCell.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		1ABD94692849655D00ECC493 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				1ABD94652849420500ECC493 /* NetworkManager.swift */,
+				1A966D8128456D4500B42FB2 /* Models.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,11 +184,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1ABD94662849420500ECC493 /* NetworkManager.swift in Sources */,
 				1A966D8428456F4900B42FB2 /* Extensions.swift in Sources */,
 				1A966D6C28456BF500B42FB2 /* AppDelegate.swift in Sources */,
 				1ABD94612846CFDF00ECC493 /* CurrentTicketVC.swift in Sources */,
 				1ABD94632848118800ECC493 /* DateFormater.swift in Sources */,
-				1A966D8228456D4500B42FB2 /* FlyModel.swift in Sources */,
+				1A966D8228456D4500B42FB2 /* Models.swift in Sources */,
 				1A966D6E28456BF500B42FB2 /* SceneDelegate.swift in Sources */,
 				1A966D8028456CF200B42FB2 /* FlightsListingVC.swift in Sources */,
 				1A966D8A28457B4A00B42FB2 /* FlightsTableViewCell.swift in Sources */,
