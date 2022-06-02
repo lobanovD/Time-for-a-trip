@@ -185,12 +185,17 @@ final class CurrentTicketVC: UIViewController {
         return likeButton
     }()
     
+    
+    // Метод нажатия на кнопку лайка
     @objc private func tapLikeButton() {
-        likeButton.setImage(UIImage(named: "likeUp"), for: .normal)
-        print(flyes)
-        flyes[CurrentTicketVC.cellID!].like = true
-        print(flyes)
-        
+        guard let cellID = CurrentTicketVC.cellID else { return }
+        if flyes[cellID].like {
+            likeButton.setImage(UIImage(named: "likeDown"), for: .normal)
+            flyes[CurrentTicketVC.cellID!].like = false
+        } else {
+            likeButton.setImage(UIImage(named: "likeUp"), for: .normal)
+            flyes[CurrentTicketVC.cellID!].like = true
+        }
     }
     
     

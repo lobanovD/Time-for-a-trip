@@ -15,6 +15,7 @@ final class FlightsListingVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        print(1)
     }
     
     // MARK: UI
