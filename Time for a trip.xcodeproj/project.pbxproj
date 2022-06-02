@@ -19,6 +19,7 @@
 		1ABD94612846CFDF00ECC493 /* CurrentTicketVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABD94602846CFDF00ECC493 /* CurrentTicketVC.swift */; };
 		1ABD94632848118800ECC493 /* DateFormater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABD94622848118800ECC493 /* DateFormater.swift */; };
 		1ABD94662849420500ECC493 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABD94652849420500ECC493 /* NetworkManager.swift */; };
+		1ABD946B284967D800ECC493 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABD946A284967D800ECC493 /* ColorPalette.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		1ABD94602846CFDF00ECC493 /* CurrentTicketVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTicketVC.swift; sourceTree = "<group>"; };
 		1ABD94622848118800ECC493 /* DateFormater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormater.swift; sourceTree = "<group>"; };
 		1ABD94652849420500ECC493 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		1ABD946A284967D800ECC493 /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			children = (
 				1A966D8328456F4900B42FB2 /* Extensions.swift */,
 				1ABD94622848118800ECC493 /* DateFormater.swift */,
+				1ABD946A284967D800ECC493 /* ColorPalette.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 			files = (
 				1ABD94662849420500ECC493 /* NetworkManager.swift in Sources */,
 				1A966D8428456F4900B42FB2 /* Extensions.swift in Sources */,
+				1ABD946B284967D800ECC493 /* ColorPalette.swift in Sources */,
 				1A966D6C28456BF500B42FB2 /* AppDelegate.swift in Sources */,
 				1ABD94612846CFDF00ECC493 /* CurrentTicketVC.swift in Sources */,
 				1ABD94632848118800ECC493 /* DateFormater.swift in Sources */,

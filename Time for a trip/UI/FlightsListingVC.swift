@@ -30,7 +30,7 @@ final class FlightsListingVC: UIViewController {
     // Индикатор загрузки
     private lazy var activityIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView(style: .large)
-        activityIndicator.color = .black
+        activityIndicator.color = ColorPalette.activityIndicator
         return activityIndicator
     }()
     
@@ -38,6 +38,7 @@ final class FlightsListingVC: UIViewController {
     private lazy var flightsTableView: UITableView = {
         let flightsTableView = UITableView()
         flightsTableView.separatorStyle = .none
+        flightsTableView.backgroundColor = ColorPalette.background
         return flightsTableView
     }()
     
@@ -46,7 +47,7 @@ final class FlightsListingVC: UIViewController {
         // Заголовок
         self.title = "Доступные билеты"
         // Фон
-        view.backgroundColor = .white
+        view.backgroundColor = ColorPalette.background
         // Запуск анимации индикатора загрузки
         activityIndicator.startAnimating()
         // Добавление индикатора загрузки на экран
@@ -91,6 +92,7 @@ extension FlightsListingVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: FlightsTableViewCell.identifire, for: indexPath) as! FlightsTableViewCell
         cell.createCell(cellId: indexPath.row)
+        cell.backgroundColor = ColorPalette.background
         return cell
     }
     

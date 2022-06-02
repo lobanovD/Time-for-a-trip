@@ -117,7 +117,7 @@ final class FlightsTableViewCell: UITableViewCell {
     private lazy var costLabel: UILabel = {
         let costLabel = UILabel()
         costLabel.font = UIFont(name: "MarkerFelt-Wide", size: 20)
-        costLabel.textColor = UIColor(named: "priceColor")
+        costLabel.textColor = ColorPalette.price
         return costLabel
     }()
     

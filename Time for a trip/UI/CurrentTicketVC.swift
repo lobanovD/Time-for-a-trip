@@ -159,7 +159,7 @@ final class CurrentTicketVC: UIViewController {
     private lazy var costLabel: UILabel = {
         let costLabel = UILabel()
         costLabel.font = UIFont(name: "MarkerFelt-Wide", size: 30)
-        costLabel.textColor = UIColor(named: "priceColor")
+        costLabel.textColor = ColorPalette.price
         return costLabel
     }()
     
@@ -195,7 +195,7 @@ final class CurrentTicketVC: UIViewController {
     private func createUI() {
         
         // Цвет фона
-        view.backgroundColor = .white
+        view.backgroundColor = ColorPalette.background
         
         // Добавление UI элементов
         view.addSubviews(idLabel,
