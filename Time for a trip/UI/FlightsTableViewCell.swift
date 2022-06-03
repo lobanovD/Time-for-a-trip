@@ -41,7 +41,7 @@ final class FlightsTableViewCell: UITableViewCell {
     private lazy var mainView: UIView = {
         let mainView = UIView()
         mainView.layer.borderWidth = 0.3
-        mainView.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
+        mainView.layer.borderColor = ColorPalette.ticketBorder.cgColor
         mainView.layer.cornerRadius = 10
         return mainView
     }()
@@ -56,7 +56,7 @@ final class FlightsTableViewCell: UITableViewCell {
     // Вертикальная линия, разделяющая вылет и прилет
     private lazy var centerLine: UIView = {
         let centerLine = UIView()
-        centerLine.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
+        centerLine.layer.borderColor = ColorPalette.ticketBorder.cgColor
         centerLine.layer.borderWidth = 0.3
         return centerLine
     }()

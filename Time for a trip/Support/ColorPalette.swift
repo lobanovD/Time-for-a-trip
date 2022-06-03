@@ -13,6 +13,5 @@ struct ColorPalette {
     static var activityIndicator = UIColor.createThemeColor(lightMode: .black, darkMode: .white)
     static var price = UIColor.createThemeColor(lightMode: UIColor.rgb(221, 53, 46, 1), darkMode: UIColor.rgb(221, 53, 46, 1))
     static var navigationBarItem = UIColor.createThemeColor(lightMode: .black, darkMode: .white)
-    
-                                                          
+    static var ticketBorder = UIColor.createThemeColor(lightMode: .systemGray, darkMode: .systemGray)
 }

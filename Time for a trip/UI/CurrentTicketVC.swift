@@ -31,7 +31,7 @@ final class CurrentTicketVC: UIViewController {
     private lazy var forwardTicketView: UIView = {
         let forwardTicketView = UIView()
         forwardTicketView.layer.borderWidth = 0.3
-        forwardTicketView.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
+        forwardTicketView.layer.borderColor = ColorPalette.ticketBorder.cgColor
         forwardTicketView.layer.cornerRadius = 10
         return forwardTicketView
     }()
@@ -91,7 +91,7 @@ final class CurrentTicketVC: UIViewController {
     private lazy var backTicketView: UIView = {
         let backTicketView = UIView()
         backTicketView.layer.borderWidth = 0.3
-        backTicketView.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
+        backTicketView.layer.borderColor = ColorPalette.ticketBorder.cgColor
         backTicketView.layer.cornerRadius = 10
         return backTicketView
     }()
@@ -173,6 +173,7 @@ final class CurrentTicketVC: UIViewController {
         }
         
         likeButton.addTarget(self, action: #selector(tapLikeButton), for: .touchUpInside)
+        
         return likeButton
     }()
     
@@ -313,9 +314,9 @@ final class CurrentTicketVC: UIViewController {
         costLabel.centerXToSuperview(offset: -60)
         
         // Кнопка Like
-        likeButton.topToBottom(of: backTicketView, offset: 30)
+        likeButton.topToBottom(of: backTicketView, offset: 20)
         likeButton.centerXToSuperview(offset: 120)
-        likeButton.height(40)
-        likeButton.width(40)
+        likeButton.height(60)
+        likeButton.width(60)
     }
 }
