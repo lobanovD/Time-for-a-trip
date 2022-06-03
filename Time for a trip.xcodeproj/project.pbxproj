@@ -96,8 +96,8 @@
 			isa = PBXGroup;
 			children = (
 				1A966D7F28456CF200B42FB2 /* FlightsListingVC.swift */,
-				1ABD94602846CFDF00ECC493 /* CurrentTicketVC.swift */,
 				1A966D8928457B4A00B42FB2 /* FlightsTableViewCell.swift */,
+				1ABD94602846CFDF00ECC493 /* CurrentTicketVC.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";

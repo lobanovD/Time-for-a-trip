@@ -93,6 +93,16 @@ extension FlightsListingVC: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: FlightsTableViewCell.identifire, for: indexPath) as! FlightsTableViewCell
         cell.createCell(cellId: indexPath.row)
         cell.backgroundColor = ColorPalette.background
+        cell.tapLike = {
+            if NetworkManager.ticketsArray[indexPath.row].like {
+                NetworkManager.ticketsArray[indexPath.row].like = false
+                tableView.reloadData()
+            } else {
+                NetworkManager.ticketsArray[indexPath.row].like = true
+                tableView.reloadData()
+            }
+            
+        }
         return cell
     }
     

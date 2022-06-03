@@ -12,6 +12,8 @@ final class FlightsTableViewCell: UITableViewCell {
     
     static let identifire = "FlightsTableViewCell"
     
+    var tapLike : (()->())?
+    
     // MARK: Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -27,7 +29,7 @@ final class FlightsTableViewCell: UITableViewCell {
                              endTime,
                              endDate,
                              costLabel,
-                             likeImage)
+                             likeImageButton)
         
         self.selectionStyle = .none
         setupConstraints()
@@ -121,11 +123,15 @@ final class FlightsTableViewCell: UITableViewCell {
         return costLabel
     }()
     
-    // Иконка "Нравится"
-    private lazy var likeImage: UIImageView = {
-        let likeImage = UIImageView()
+    // Кнопка "Нравится"
+    private lazy var likeImageButton: UIButton = {
+        let likeImage = UIButton()
+        likeImage.addTarget(self, action: #selector(tapLikeButton), for: .touchUpInside)
         return likeImage
     }()
+    @objc func tapLikeButton() {
+        tapLike?()
+    }
     
     // MARK: Наполнение ячейки
     func createCell(cellId: Int) {
@@ -143,9 +149,9 @@ final class FlightsTableViewCell: UITableViewCell {
         costLabel.text = String("\(NetworkManager.ticketsArray[cellId].price) ₽")
         
         if NetworkManager.ticketsArray[cellId].like {
-            likeImage.image = UIImage(named: "likeUp")
+            likeImageButton.setImage(UIImage(named: "likeUp"), for: .normal)
         } else {
-            likeImage.image = UIImage(named: "likeDown")
+            likeImageButton.setImage(UIImage(named: "likeDown"), for: .normal)
         }
     }
     
@@ -194,14 +200,19 @@ final class FlightsTableViewCell: UITableViewCell {
         costLabel.topToSuperview(offset: 10)
         costLabel.rightToSuperview(offset: -10)
         
-        likeImage.centerXToSuperview()
-        likeImage.bottomToSuperview(offset: -6)
-        likeImage.height(20)
-        likeImage.width(20)
+        //        likeImage.centerXToSuperview()
+        //        likeImage.bottomToSuperview(offset: -6)
+        //        likeImage.height(20)
+        //        likeImage.width(20)
+        
+        likeImageButton.centerXToSuperview()
+        likeImageButton.bottomToSuperview(offset: -6)
+        likeImageButton.height(20)
+        likeImageButton.width(20)
+        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }
