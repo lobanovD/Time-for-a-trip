@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-
 extension UIView {
     
     func addSubviews(_ subviews: UIView...) {
@@ -33,5 +32,3 @@ extension UIColor {
         return color
     }
 }
-
-

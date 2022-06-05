@@ -67,11 +67,6 @@ final class NetworkManager {
                 DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
                     NotificationCenter.default.post(name: Notification.Name("getDataFinish"), object: nil)
                 }
-                                              
-                                              
-                                            
-                
-                
             } catch {}
         }.resume()
     }

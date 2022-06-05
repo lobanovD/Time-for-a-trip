@@ -199,12 +199,7 @@ final class FlightsTableViewCell: UITableViewCell {
         
         costLabel.topToSuperview(offset: 10)
         costLabel.rightToSuperview(offset: -10)
-        
-        //        likeImage.centerXToSuperview()
-        //        likeImage.bottomToSuperview(offset: -6)
-        //        likeImage.height(20)
-        //        likeImage.width(20)
-        
+
         likeImageButton.centerXToSuperview()
         likeImageButton.bottomToSuperview(offset: -6)
         likeImageButton.height(20)
